@@ -40,7 +40,7 @@ jobs:
       run: coverage run --source=. manage.py test
 
     - name: Show coverage report
-      run: coverage -m report
+      run: coverage report -m
 
     - name: Checks code style
       run: |
