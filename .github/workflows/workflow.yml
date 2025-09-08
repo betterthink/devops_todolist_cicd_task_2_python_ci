@@ -34,15 +34,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 coverage
         pip install -r requirements.txt
+        python manage.py migrate
 
-    - name: Runs tests
-      run: python manage.py test
-
-    - name: Generate covarege
-      run: coverage run manage.py test
+    - name: Generate coverage
+      run: coverage run --source=. manage.py test
 
     - name: Show coverage report
-      run: coverage report
+      run: coverage -m report
 
     - name: Checks code style
       run: |
